@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+  <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+  <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"> </script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css')}}">
+  <title> Fuel-Price-USA </title>
+</head>
+
+<body>
+  <h1 align="center"> Fuel Price USA </h1>
+  <div class="conatainer" style="display: flex; width: 100%">
+    <div class="conatainer1" style="width: 50%">
+      <div class="box1">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title1"> Price Query </span>
+                <p>
+                  Get fuel price by choosing fuel type, area, and date. Price for nearest date is displayed if data is unavailable for the date specified.
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="priceSearch">Go</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box2">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title2"> Data Visualization </span>
+                <p>
+                  View line graph with fuel price trends for various areas witin the U.S.
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="visualization">Go</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box3">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title3"> Price Prediction </span>
+                <p>
+                  Coming soon!
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="#">Go</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container2" style="width: 50%">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="graph" id="choromap">
+            <div class="graph" id="choromap">
+              <script>
+                var graphs = {{plot | safe}};
+                Plotly.plot('choromap',graphs,{});
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

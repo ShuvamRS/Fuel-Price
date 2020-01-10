@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+  <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+  <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"> </script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css')}}">
+  <script type="text/javascript" src="{{ url_for('static', filename = 'javascript/visualization.js') }}"></script>
+  <title> Fuel-Price-USA </title>
+
+  <script>
+   $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+</head>
+
+
+<body> 
+  <h1 align="center"> Fuel Price Trends </h1>
+  <div class="container1">
+   <div class="input-field col s12" style="width: 30%">
+    <select id="select1">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="regular">regular</option>
+      <option value="midgrade">midgrade</option>
+      <option value="premium">premium</option>
+    </select>
+    <label>Select fuel type:</label>
+  </div>       
+  <div class="input-field col s12" style="width: 30%">
+    <select id="select2" multiple="multiple">
+      <option value="" disabled selected>Choose your option</option>
+      {% for area in area_list %}
+      <option value={{area}}>{{area}}</option>
+      {% endfor %}
+    </select>
+    <label>Select area:</label>
+  </div>
+  <a class="waves-effect waves-light btn" onclick="getSelections()"> 
+    View Plot
+  </a>
+</div>
+<br>
+{% if graph %}
+<div class="container2">
+  <div align="center">
+    <img src ="data:image/png;base64,{{graph}}">
+  </div>
+</div>
+{% endif %}
+</body> 
+
+</html>          

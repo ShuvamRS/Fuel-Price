@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+  <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+  <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"> </script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css')}}">
+  <script type="text/javascript" src="{{ url_for('static', filename = 'javascript/priceSearch.js') }}"></script>
+  <title> Fuel-Price-USA </title> 
+
+  <script>
+   $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+
+</head>
+
+<body> 
+  <h1 align="center"> Price Search </h1>
+  <div class="input-field col s12" style="width: 30%">
+    <select id="select1">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="regular">regular</option>
+      <option value="midgrade">midgrade</option>
+      <option value="premium">premium</option>
+    </select>
+    <label>Select fuel type:</label>
+  </div>
+  <div class="input-field col s12" style="width: 30%">
+    <select id="select2">
+      <option value="" disabled selected>Choose your option</option>
+      {% for area in area_list %}
+      <option value={{area}}>{{area}}</option>
+      {% endfor %}
+    </select>
+    <label>Select area:</label>
+  </div>
+  <div class="row">
+    <div class="input-field col s12" style="width: 12%">
+      <input id="date_input" type="date">
+      <label for="date_input" class="active">Select date:</label>
+    </div>
+  </div>
+  <a class="waves-effect waves-light btn" onclick="process_inputs()"> 
+    Get Price
+  </a>
+  <p style="background-color: #1F2833; color: lightblue; font-family: 'Times New Roman'"><span> <font size="5"> {{q_result}} </font> </span></p>
+</body> 
+
+</html>    

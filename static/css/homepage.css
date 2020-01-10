@@ -1,0 +1,25 @@
+body {
+  background-image: url('/static/images/homepage_background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+h1 {
+  background-color: #1F2833;
+  color: darkorange;
+}
+
+.card {
+  background-color: #1F2833;
+}
+
+.card-content {
+  font-size: larger;
+  color: lightblue;
+}
+
+.card-title1, .card-title2, .card-title3 {
+  font-size: larger;
+  color: darkorange;
+}
