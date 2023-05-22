@@ -1,6 +1,6 @@
 Flask_Material==0.1.1
 plotly==4.4.1
-requests==2.21.0
+requests==2.31.0
 matplotlib==3.0.3
 APScheduler==3.0.0
 holidays==0.9.12
